@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+- phpMyAdmin XML Dump
+- version 4.8.3
+- https://www.phpmyadmin.net
+-
+- Servidor: 127.0.0.1
+- Tiempo de generación: 04-04-2022 a las 07:44:04
+- Versión del servidor: 10.1.35-MariaDB
+- Versión de PHP: 7.2.9
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="crud" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="students">
+                CREATE TABLE `students` (
+                  `number` int(4) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(44) NOT NULL,
+                  `city` varchar(44) NOT NULL,
+                  `phone` varchar(22) NOT NULL,
+                  PRIMARY KEY (`number`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de datos: 'crud'
+    -->
+    <database name="crud">
+        <!-- Tabla students -->
+        <table name="students">
+            <column name="number">1</column>
+            <column name="name">Alejandro Ramos</column>
+            <column name="city">Aguascalientes</column>
+            <column name="phone">+52 (449) 398 1375</column>
+        </table>
+        <table name="students">
+            <column name="number">2</column>
+            <column name="name">José Ramírez</column>
+            <column name="city">Guanajuato</column>
+            <column name="phone">+52 (488) 384 2208</column>
+        </table>
+        <table name="students">
+            <column name="number">3</column>
+            <column name="name">Adriana Maldonado</column>
+            <column name="city">Tamaulipas</column>
+            <column name="phone">+52 (558) 348 0022</column>
+        </table>
+        <table name="students">
+            <column name="number">4</column>
+            <column name="name">Jessica Willson</column>
+            <column name="city">California</column>
+            <column name="phone">+01 (322) 580 6982</column>
+        </table>
+        <table name="students">
+            <column name="number">5</column>
+            <column name="name">William Halleck</column>
+            <column name="city">Bangor</column>
+            <column name="phone">+01 (288) 248 9944</column>
+        </table>
+        <table name="students">
+            <column name="number">6</column>
+            <column name="name">Felipe Gonzáles</column>
+            <column name="city">Monterrey</column>
+            <column name="phone">+52 (556) 136 4422</column>
+        </table>
+        <table name="students">
+            <column name="number">8</column>
+            <column name="name">Juan Arriaga</column>
+            <column name="city">Ciudad de México</column>
+            <column name="phone">+44 (322) 4800 1322</column>
+        </table>
+    </database>
+</pma_xml_export>

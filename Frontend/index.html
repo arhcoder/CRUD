@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRUD Básico 😎</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" type="image/x-icon" href="https://arhcoder.github.io/arhcoder-old/02-Images/favicon.svg">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body onload="selectFromStudents();">
+	<!-- TABLA DE CONTENIDOS -->
+    <div class="container">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-xs-6">
+							<h2>Registro de <b>ESTUDIANTES</b></h2>
+						</div>
+						<div class="col-xs-6">
+							<a href="#addStudentModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar</span></a>
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover" id="mainTable">
+					<thead>
+						<tr>
+							<th>Número</th>
+							<th>Nombre</th>
+							<th>Ciudad</th>
+							<th>Teléfono</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Este se generará mediante el método de carga en el body selectFromStudents(); -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+	<!-- VENTANA PARA AÑADIR UN NUEVO ESTUDIANTE -->
+	<div id="addStudentModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form onsubmit="submitRecord();">
+					<div class="modal-header">
+						<h4 class="modal-title">Agregar nuevo estudiante...</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" id="addName" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Ciudad</label>
+							<input type="text" id="addCity" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Teléfono</label>
+							<input type="text" id="addPhone" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-success" value="Agregar" id="submitButton">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- VENTANA PARA EDITAR UN REGISTRO EXISTENTE -->
+	<div id="editStudentModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Editar registro...</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" id="updateName" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Ciudad</label>
+							<input type="text" id="updateCity" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>Teléfono</label>
+							<input type="text" id="updatePhone" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" onclick="updateRecord();"  class="btn btn-info" value="Guardar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- VENTANA PARA BORRAR REGISTRO -->
+	<div id="deleteStudentModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Borrar registro...</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>¿Estás seguro de querer borrar este registro?</p>
+						<p class="text-warning"><small>Esta acción no se puede deshacer...</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" onclick="deleteRecord();" id="delteButton" class="btn btn-danger" value="Borrar">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
