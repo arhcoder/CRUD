@@ -5,7 +5,6 @@ function changeSelectedRecordNumber(number)
 {
     selectedRecordNumber = number;
 }
-
 async function setStudentTitleLabel()
 {
     // Gets the url number argument...
@@ -18,10 +17,11 @@ async function setStudentTitleLabel()
         const response = await fetch("http://localhost:3000/students/" + number);
         const json = await response.json();
         document.getElementById("studentTitleLabel").innerHTML = "<b>CURSOS</b> de " + json[0].name;
+        document.getElementById("appTitle").innerHTML = "Cursos de " + json[0].name;
     }
 }
 
-function insertNewRecord(row)
+function drawNewStudentRecord(row)
 {
     var tableBody = document.getElementById("mainTable").getElementsByTagName("tbody")[0];
     var newRow = tableBody.insertRow(tableBody.rows.length);
@@ -32,9 +32,21 @@ function insertNewRecord(row)
     "<td>"+row.phone+"</td>"+
     "<td><a href=\"#editStudentModal\" class=\"edit\" id=\"edit" + row.number +"\" onclick=\"changeSelectedRecordNumber(" + row.number +"); setFormToUpdateARecord();\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Editar\">&#xE254;</i></a>"+
     "<a href=\"#deleteStudentModal\" class=\"delete\" id=\"delete" + row.number +"\" onclick=\"changeSelectedRecordNumber(" + row.number +");\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Borrar\">&#xE872;</i></a>" +
-    "<a href=\"/Frontend/student.html\" class=\"courses\" id=\"courses" + row.number +"\" onclick=\"location.href=this.href+'?number='+"+row.number+";return false; changeSelectedRecordNumber(" + row.number +");\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Más\">&#xE5D4;</i></a></td></tr>";
+    "<a href=\"/Frontend/student.html\" class=\"courses\" id=\"courses" + row.number +"\" onclick=\"location.href=this.href+'?number='+"+row.number+";return false; changeSelectedRecordNumber(" + row.number +");\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Más\">&#xE5D2;</i></a></td></tr>";
     newRow.innerHTML = rowHTMLContent;
 }
+function drawNewCourseRecord(row)
+{
+    var tableBody = document.getElementById("mainTable").getElementsByTagName("tbody")[0];
+    var newRow = tableBody.insertRow(tableBody.rows.length);
+    let rowHTMLContent =
+    "<td>"+row.id+"</td>"+
+    "<td>"+row.name+"</td>"+
+    "<td>"+row.subject+"</td>"+
+    "<td>"+row.level+"</td></tr>";
+    newRow.innerHTML = rowHTMLContent;
+}
+
 async function selectFromStudents()
 {
     // Hace la petición a la API corriendo en localhost:3000/students...
@@ -44,7 +56,7 @@ async function selectFromStudents()
     // Recorre el JSON obtenido de las filas de "students" en la base de datos...
     for (let row = 0; row < json.length; row++)
     {
-        insertNewRecord(json[row]);
+        drawNewStudentRecord(json[row]);
     }
 }
 async function selectFromCourses()
@@ -60,7 +72,7 @@ async function selectFromCourses()
     // Recorre el JSON obtenido de las filas de "students" en la base de datos...
     for (let row = 0; row < json.length; row++)
     {
-        insertNewRecord(json[row]);
+        drawNewCourseRecord(json[row]);
     }
 }
 
@@ -73,7 +85,6 @@ async function submitRecord()
     document.getElementById("addCity").value + "/" +
     document.getElementById("addPhone").value);
 }
-
 async function setFormToUpdateARecord()
 {
     // Escribe en las barras de texto, los valores que se van a editar...
@@ -85,7 +96,6 @@ async function setFormToUpdateARecord()
     document.getElementById("updateCity").value = json[0].city;
     document.getElementById("updatePhone").value = json[0].phone;
 }
-
 async function updateRecord()
 {
     if (selectedRecordNumber != null)
@@ -98,7 +108,6 @@ async function updateRecord()
         document.getElementById("updatePhone").value);
     }
 }
-
 async function deleteRecord()
 {
     if (selectedRecordNumber != null)

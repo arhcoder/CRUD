@@ -2,8 +2,25 @@ body
 {
     color: #566688;
     background: #F5F5F5;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 13px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 14 - 1px;
+}
+.backButton
+{
+    margin-left: 10px;
+    position: absolute;
+    box-sizing: content-box;
+    z-index: 1;
+}
+.backButton a i
+{
+    color: #FFF;
+    padding-top: 1px;
+    font-size: 30px;
+}
+.studentTitleLabel
+{
+    padding-left: 40px;
 }
 .table-responsive
 {
@@ -129,7 +146,6 @@ table.table .avatar
     vertical-align: middle;
     margin-right: 10px;
 }
-
 .pagination
 {
     float: right;

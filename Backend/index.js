@@ -10,20 +10,23 @@ app.use(bodyparser.json());
 // Creating the connection to the database "crud", on the localhost...
 var connection = mysql.createConnection(
 {
-    host     : "localhost",
-    user     : "root",
-    password : "",
-    database : "crud",
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "crud",
     multipleStatements: true
 });
-
 connection.connect((error) =>
 {
     if (!error)
+    {
         console.log("Connected correctly to the database! :D");
+    }
     else
+    {
         console.log("Cannot connect to the database! D:\n"+
         JSON.stringify(error, undefined, 2));
+    }
 });
 
 
@@ -126,13 +129,36 @@ app.get("/students/delete/:number", (request, response) =>
     });
 });
 
-// Gets the info of an specific student...
+// Gets the info of a specific student...
 app.get("/students/:number", (request, response) =>
 {
     response.setHeader("Access-Control-Allow-Origin", "*");
     response.setHeader("Access-Control-Allow-Credentials", true);
 
     connection.query("SELECT * FROM students WHERE number = ?", [request.params.number], (error, rows, fields) =>
+    {
+        if (!error)
+        {
+            // console.log(rows);
+            response.send(rows);
+        }
+        else
+        {
+            console.log(error);
+            response.send(error);
+        }
+    });
+});
+
+// Gets the completed courses of an specific student...
+app.get("/courses/student/:number", (request, response) =>
+{
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Credentials", true);
+
+    connection.query("SELECT * FROM courses WHERE id IN "+
+    "(SELECT courseCompleted FROM kardex WHERE studentNumber = ?);",
+    [request.params.number], (error, rows, fields) =>
     {
         if (!error)
         {

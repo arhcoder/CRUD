@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 - phpMyAdmin XML Dump
 - version 4.8.3
 - https://www.phpmyadmin.net
 -
 - Servidor: 127.0.0.1
-- Tiempo de generación: 04-04-2022 a las 07:44:04
+- Tiempo de generación: 05-04-2022 a las 06:55:37
 - Versión del servidor: 10.1.35-MariaDB
-- Versión de PHP: 7.2.9
+- Versión de PHP: 8.2.10
 -->
 
 <pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
@@ -17,6 +16,25 @@
     -->
     <pma:structure_schemas>
         <pma:database name="crud" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="courses">
+                CREATE TABLE `courses` (
+                  `id` int(4) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(88) NOT NULL,
+                  `subject` varchar(88) NOT NULL,
+                  `level` varchar(8) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="kardex">
+                CREATE TABLE `kardex` (
+                  `studentNumber` int(11) NOT NULL,
+                  `courseCompleted` int(11) NOT NULL,
+                  PRIMARY KEY (`studentNumber`,`courseCompleted`),
+                  KEY `FK_CourseID` (`courseCompleted`),
+                  CONSTRAINT `FK_CourseID` FOREIGN KEY (`courseCompleted`) REFERENCES `courses` (`id`),
+                  CONSTRAINT `kardex_ibfk_1` FOREIGN KEY (`studentNumber`) REFERENCES `students` (`number`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
             <pma:table name="students">
                 CREATE TABLE `students` (
                   `number` int(4) NOT NULL AUTO_INCREMENT,
@@ -24,7 +42,7 @@
                   `city` varchar(44) NOT NULL,
                   `phone` varchar(22) NOT NULL,
                   PRIMARY KEY (`number`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+                ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
@@ -33,6 +51,604 @@
     - Base de datos: 'crud'
     -->
     <database name="crud">
+        <!-- Tabla courses -->
+        <table name="courses">
+            <column name="id">1</column>
+            <column name="name">Programación Estructurada</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">2</column>
+            <column name="name">Bases de Datos Simples</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">3</column>
+            <column name="name">Programación Orientada a Objetos</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">4</column>
+            <column name="name">Bases de Datos Avanzadas</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">5</column>
+            <column name="name">Aplicaciones Web</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">III</column>
+        </table>
+        <table name="courses">
+            <column name="id">6</column>
+            <column name="name">Aplicaciones Móviles</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">III</column>
+        </table>
+        <table name="courses">
+            <column name="id">7</column>
+            <column name="name">Sistemas Operativos</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">8</column>
+            <column name="name">Administración de Redes</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">9</column>
+            <column name="name">Seguridad Informática</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">V</column>
+        </table>
+        <table name="courses">
+            <column name="id">10</column>
+            <column name="name">Programación Científica</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">V</column>
+        </table>
+        <table name="courses">
+            <column name="id">11</column>
+            <column name="name">Estructuras de Datos</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">12</column>
+            <column name="name">Programación en Ensamblador</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">13</column>
+            <column name="name">Patrones de Diseño</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">VIII</column>
+        </table>
+        <table name="courses">
+            <column name="id">14</column>
+            <column name="name">Sistemas Gestores de Versiones</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">VIII</column>
+        </table>
+        <table name="courses">
+            <column name="id">15</column>
+            <column name="name">Derecho Informático</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">X</column>
+        </table>
+        <table name="courses">
+            <column name="id">16</column>
+            <column name="name">Emprendimiento de Software</column>
+            <column name="subject">Ingeniería de Software</column>
+            <column name="level">X</column>
+        </table>
+        <table name="courses">
+            <column name="id">17</column>
+            <column name="name">Química Básica</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">18</column>
+            <column name="name">Biología Básica</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">19</column>
+            <column name="name">Biología Celular</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">20</column>
+            <column name="name">Microbiología</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">21</column>
+            <column name="name">Genética</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">22</column>
+            <column name="name">Biofísica</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">23</column>
+            <column name="name">Bioquímica</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">24</column>
+            <column name="name">Farmacéutica</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">25</column>
+            <column name="name">Estudio de células</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">VIII</column>
+        </table>
+        <table name="courses">
+            <column name="id">26</column>
+            <column name="name">Modificación de células</column>
+            <column name="subject">Biomedicina</column>
+            <column name="level">X</column>
+        </table>
+        <table name="courses">
+            <column name="id">27</column>
+            <column name="name">Aprendizaje y Conducta Adaptativa</column>
+            <column name="subject">Psicología</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">28</column>
+            <column name="name">Bases Biológicas de la Conducta</column>
+            <column name="subject">Psicología</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">29</column>
+            <column name="name">Ciclo de Vida</column>
+            <column name="subject">Psicología</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">30</column>
+            <column name="name">Historia de la Psicología</column>
+            <column name="subject">Psicología</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">31</column>
+            <column name="name">Transtornos psicológicos</column>
+            <column name="subject">Psicología</column>
+            <column name="level">III</column>
+        </table>
+        <table name="courses">
+            <column name="id">32</column>
+            <column name="name">Psiquiatría Básica</column>
+            <column name="subject">Psicología</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">33</column>
+            <column name="name">Enfermedades Mentales</column>
+            <column name="subject">Psicología</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">34</column>
+            <column name="name">Fobias de alto nivel</column>
+            <column name="subject">Psicología</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">35</column>
+            <column name="name">Dinámica de grupos</column>
+            <column name="subject">Psicología</column>
+            <column name="level">VIII</column>
+        </table>
+        <table name="courses">
+            <column name="id">36</column>
+            <column name="name">Estudio matemático de masas poblacionales</column>
+            <column name="subject">Psicología</column>
+            <column name="level">X</column>
+        </table>
+        <table name="courses">
+            <column name="id">37</column>
+            <column name="name">Teoría Musical Básica</column>
+            <column name="subject">Música</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">38</column>
+            <column name="name">Piano Básico</column>
+            <column name="subject">Música</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">39</column>
+            <column name="name">Teoría Musica Avanzada</column>
+            <column name="subject">Música</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">40</column>
+            <column name="name">Piano Avanzado</column>
+            <column name="subject">Música</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">41</column>
+            <column name="name">Armonía</column>
+            <column name="subject">Música</column>
+            <column name="level">III</column>
+        </table>
+        <table name="courses">
+            <column name="id">42</column>
+            <column name="name">Improvisación</column>
+            <column name="subject">Música</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">43</column>
+            <column name="name">Composición Musical Básica</column>
+            <column name="subject">Música</column>
+            <column name="level">V</column>
+        </table>
+        <table name="courses">
+            <column name="id">44</column>
+            <column name="name">Historia de la Música</column>
+            <column name="subject">Música</column>
+            <column name="level">VI</column>
+        </table>
+        <table name="courses">
+            <column name="id">45</column>
+            <column name="name">Interpretación en Público</column>
+            <column name="subject">Música</column>
+            <column name="level">VIII</column>
+        </table>
+        <table name="courses">
+            <column name="id">46</column>
+            <column name="name">Composición Musical Avanzada</column>
+            <column name="subject">Música</column>
+            <column name="level">X</column>
+        </table>
+        <table name="courses">
+            <column name="id">47</column>
+            <column name="name">Álgebra Lineal y Aritmética</column>
+            <column name="subject">Matemáticas Aplicadas</column>
+            <column name="level">I</column>
+        </table>
+        <table name="courses">
+            <column name="id">48</column>
+            <column name="name">Geometría Analítica</column>
+            <column name="subject">Matemáticas Aplicadas</column>
+            <column name="level">II</column>
+        </table>
+        <table name="courses">
+            <column name="id">49</column>
+            <column name="name">Cálculo Diferencial e Integral</column>
+            <column name="subject">Matemáticas Aplicadas</column>
+            <column name="level">IV</column>
+        </table>
+        <table name="courses">
+            <column name="id">50</column>
+            <column name="name">Ecuaciones Diferenciales</column>
+            <column name="subject">Matemáticas Aplicadas</column>
+            <column name="level">VIII</column>
+        </table>
+        <!-- Tabla kardex -->
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">1</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">2</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">3</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">4</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">5</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">6</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">8</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">9</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">10</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">15</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">31</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">32</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">39</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">40</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">41</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">42</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">1</column>
+            <column name="courseCompleted">46</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">1</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">2</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">4</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">6</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">8</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">9</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">10</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">11</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">12</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">47</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">49</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">2</column>
+            <column name="courseCompleted">50</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">17</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">18</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">19</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">20</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">21</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">22</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">23</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">24</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">25</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">26</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">27</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">3</column>
+            <column name="courseCompleted">28</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">1</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">2</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">3</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">4</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">5</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">6</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">7</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">8</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">10</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">14</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">16</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">4</column>
+            <column name="courseCompleted">50</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">5</column>
+            <column name="courseCompleted">31</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">5</column>
+            <column name="courseCompleted">32</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">5</column>
+            <column name="courseCompleted">33</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">5</column>
+            <column name="courseCompleted">34</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">5</column>
+            <column name="courseCompleted">35</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">5</column>
+            <column name="courseCompleted">36</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">37</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">38</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">39</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">40</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">41</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">42</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">43</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">44</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">45</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">6</column>
+            <column name="courseCompleted">46</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">8</column>
+            <column name="courseCompleted">10</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">8</column>
+            <column name="courseCompleted">47</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">8</column>
+            <column name="courseCompleted">48</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">8</column>
+            <column name="courseCompleted">49</column>
+        </table>
+        <table name="kardex">
+            <column name="studentNumber">8</column>
+            <column name="courseCompleted">50</column>
+        </table>
         <!-- Tabla students -->
         <table name="students">
             <column name="number">1</column>
@@ -74,7 +690,7 @@
             <column name="number">8</column>
             <column name="name">Juan Arriaga</column>
             <column name="city">Ciudad de México</column>
-            <column name="phone">+44 (322) 4800 1322</column>
+            <column name="phone">+44 (322) 480 1322</column>
         </table>
     </database>
 </pma_xml_export>
