@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 - phpMyAdmin XML Dump
-- version 4.8.3
+- version 5.2.0
 - https://www.phpmyadmin.net
 -
 - Servidor: 127.0.0.1
-- Tiempo de generación: 05-04-2022 a las 06:55:37
-- Versión del servidor: 10.1.35-MariaDB
-- Versión de PHP: 8.2.10
+- Tiempo de generación: 30-05-2022 a las 08:11:14
+- Versión del servidor: 10.4.24-MariaDB
+- Versión de PHP: 8.1.6
 -->
 
 <pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
@@ -29,6 +29,7 @@
                 CREATE TABLE `kardex` (
                   `studentNumber` int(11) NOT NULL,
                   `courseCompleted` int(11) NOT NULL,
+                  `score` double DEFAULT NULL,
                   PRIMARY KEY (`studentNumber`,`courseCompleted`),
                   KEY `FK_CourseID` (`courseCompleted`),
                   CONSTRAINT `FK_CourseID` FOREIGN KEY (`courseCompleted`) REFERENCES `courses` (`id`),
@@ -356,298 +357,372 @@
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">1</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">2</column>
+            <column name="score">9.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">3</column>
+            <column name="score">9.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">4</column>
+            <column name="score">9.6</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">5</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">6</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">8</column>
+            <column name="score">9.3</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">9</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">10</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">15</column>
+            <column name="score">8.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">31</column>
+            <column name="score">8.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">32</column>
+            <column name="score">9</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">39</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">40</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">41</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">42</column>
+            <column name="score">8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">1</column>
             <column name="courseCompleted">46</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">1</column>
+            <column name="score">8.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">2</column>
+            <column name="score">9</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">4</column>
+            <column name="score">9.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">6</column>
+            <column name="score">8.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">8</column>
+            <column name="score">9.1</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">9</column>
+            <column name="score">8.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">10</column>
+            <column name="score">8.6</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">11</column>
+            <column name="score">9.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">12</column>
+            <column name="score">6.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">47</column>
+            <column name="score">8.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">49</column>
+            <column name="score">6.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">2</column>
             <column name="courseCompleted">50</column>
+            <column name="score">7.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">17</column>
+            <column name="score">8.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">18</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">19</column>
+            <column name="score">8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">20</column>
+            <column name="score">9.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">21</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">22</column>
+            <column name="score">9.6</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">23</column>
+            <column name="score">9.5</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">24</column>
+            <column name="score">9.5</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">25</column>
+            <column name="score">9.6</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">26</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">27</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">3</column>
             <column name="courseCompleted">28</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">1</column>
+            <column name="score">9.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">2</column>
+            <column name="score">9.5</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">3</column>
+            <column name="score">9.6</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">4</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">5</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">6</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">7</column>
+            <column name="score">9.6</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">8</column>
+            <column name="score">9.5</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">10</column>
+            <column name="score">9.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">14</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">16</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">4</column>
             <column name="courseCompleted">50</column>
+            <column name="score">8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">5</column>
             <column name="courseCompleted">31</column>
+            <column name="score">8.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">5</column>
             <column name="courseCompleted">32</column>
+            <column name="score">7.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">5</column>
             <column name="courseCompleted">33</column>
+            <column name="score">8.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">5</column>
             <column name="courseCompleted">34</column>
+            <column name="score">9</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">5</column>
             <column name="courseCompleted">35</column>
+            <column name="score">6.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">5</column>
             <column name="courseCompleted">36</column>
+            <column name="score">7</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">37</column>
+            <column name="score">9.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">38</column>
+            <column name="score">9.3</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">39</column>
+            <column name="score">9.2</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">40</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">41</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">42</column>
+            <column name="score">7.7</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">43</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">44</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">45</column>
+            <column name="score">8.4</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">6</column>
             <column name="courseCompleted">46</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">8</column>
             <column name="courseCompleted">10</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">8</column>
             <column name="courseCompleted">47</column>
+            <column name="score">9.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">8</column>
             <column name="courseCompleted">48</column>
+            <column name="score">10</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">8</column>
             <column name="courseCompleted">49</column>
+            <column name="score">8.8</column>
         </table>
         <table name="kardex">
             <column name="studentNumber">8</column>
             <column name="courseCompleted">50</column>
+            <column name="score">10</column>
         </table>
         <!-- Tabla students -->
         <table name="students">
@@ -690,7 +765,7 @@
             <column name="number">8</column>
             <column name="name">Juan Arriaga</column>
             <column name="city">Ciudad de México</column>
-            <column name="phone">+44 (322) 480 1322</column>
+            <column name="phone">+52 (552) 480 1322</column>
         </table>
     </database>
 </pma_xml_export>

@@ -232,3 +232,169 @@ table.table .avatar
 {
     font-weight: normal;
 }
+
+/* LOGIN */
+.login
+{
+    background: #DEDEF4;
+}
+.margin-top
+{
+    margin-top: 20vh;
+}
+.form-container
+{
+    font-family: "Roboto", sans-serif;
+    padding-right: 15px;
+    position: relative;
+    z-index: 1;
+}
+.form-container:before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    bottom: 20%;
+    z-index: -1;
+}
+.form-container .title
+{
+    color: #133166;
+    background-color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 50px 15px 20px;
+    margin: 0;
+    display: inline-block;
+    clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+    border-radius: 14px 14px 0 0;
+}
+.form-container .title i
+{
+    color: #133166;
+    margin-right: 10px;
+}
+.form-container .form-horizontal
+{
+    background: #FFF;
+    padding: 30px 0 0;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.1);
+    border-radius: 0px 20px 20px 20px;
+}
+.form-horizontal .form-group
+{
+    padding: 0 25px;
+    margin: 0 0 20px;
+}
+.form-horizontal .form-group:last-of-type{ margin-bottom: 30px; }
+.form-horizontal .form-group label
+{
+    font-size: 13.5px;
+    text-transform: uppercase;
+}
+.form-horizontal .form-group label.check-label
+{
+    text-transform: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+.form-horizontal .form-control
+{
+    color: #111;
+    background: #F5F5F5;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    height: 33px;
+    padding: 6px 12px;
+    border-radius: 11px;
+    border: none;
+    box-shadow: none;
+    border-top: 1px solid #E8E8E8;
+    border-left: 1px solid #E8E8E8;
+}
+.form-horizontal .form-control:focus
+{
+    background-color: rgba(42, 88, 174, 0.088);
+    border-radius: 11px;
+    box-shadow: none;
+}
+.form-horizontal .checkbox
+{
+    height: 14px;
+    width: 14px;
+    min-height: auto;
+    margin: 0 3px 0 0;
+    border: 1px solid #999;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.3s ease;
+}
+.form-horizontal .checkbox:before
+{
+    content: "";
+    height: 7px;
+    width: 14px;
+    border-bottom: 3px solid #133166;
+    border-left: 3px solid #133166;
+    opacity: 0;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 1px;
+    top: 0;
+    transition: all 0.3s ease;
+}
+.form-horizontal .checkbox:checked{ border-color: #133166; }
+.form-horizontal .checkbox:checked:before{ opacity: 1; }
+.form-horizontal .checkbox:not(:checked):before{ opacity: 0; }
+.form-horizontal .checkbox:focus{ outline: none; }
+.form-horizontal .signup
+{
+    color: #fff;
+    background-color: #133166;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 0 0 16px 16px;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+.form-horizontal .signup:hover,
+.form-horizontal .signup:focus
+{
+    background-color: #3BB83B;
+}
+
+.alert
+{
+    width: 40%;
+    margin-top: 40px;
+    margin-left: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #DA1818;
+    color: white;
+    display: none;
+}
+.closebtn
+{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

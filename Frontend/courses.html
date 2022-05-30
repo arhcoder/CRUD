@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="appTitle" >Cursos del estudiante</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body onload="selectFromCourses(); setStudentTitleLabel();">
+	<!-- TABLA DE CONTENIDOS -->
+    <div class="container">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="backButton">
+							<a href="javascript:history.back();"><i class="material-icons">&#xE5C4;</i></a>
+						</div>
+						<div class="col-xs-8">
+							<h2 class="studentTitleLabel" id="studentTitleLabel"><b>CURSOS</b> de ...</h2>
+						</div>
+						<div class="col-xs-0">
+							<a onclick="getScores();" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xe01d;</i><span>Calificaciones</span></a>
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover" id="mainTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Curso</th>
+							<th>Asignatura</th>
+							<th>Nivel</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Este se generará mediante el método de carga en el body selectFromStudents(); -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

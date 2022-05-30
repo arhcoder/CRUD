@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registro de Estudiantes</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,121 +13,40 @@
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
+	<title>CRUD Básico</title>
 </head>
-<body onload="selectFromStudents();">
-	<!-- TABLA DE CONTENIDOS -->
-    <div class="container">
-		<div class="table-responsive">
-			<div class="table-wrapper">
-				<div class="table-title">
-					<div class="row">
-						<div class="col-xs-6">
-							<h2>Registro de <b>ESTUDIANTES</b></h2>
-						</div>
-						<div class="col-xs-6">
-							<a href="#addStudentModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar</span></a>
-						</div>
+<body class="login">
+	<div class="margin-top"></div>
+	<div class="form-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
+					<div class="form-container">
+						<h3 class="title"><i class="far fa-caret-square-right"></i>LOGIN</h3>
+						<form class="form-horizontal" onsubmit="return login();" action="students.html">
+							<div class="form-group">
+								<label for="">Usuario</label>
+								<input type="text" class="form-control" id="username-bar" required>
+							</div>
+							<div class="form-group">
+								<label for="">Contraseña</label>
+								<input type="password" class="form-control" id="password-bar" required>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" class="checkbox">
+								<label class="check-label" for="">Recordar contraseña</label>
+							</div>
+							<input type="submit" class="btn signup" value="INGRESAR" acti id="accesButton">
+						</form>
 					</div>
 				</div>
-				<table class="table table-striped table-hover" id="mainTable">
-					<thead>
-						<tr>
-							<th>Número</th>
-							<th>Nombre</th>
-							<th>Ciudad</th>
-							<th>Teléfono</th>
-							<th>Acciones</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- Este se generará mediante el método de carga en el body selectFromStudents(); -->
-					</tbody>
-				</table>
-			</div>
-		</div>
-    </div>
-	<!-- VENTANA PARA AÑADIR UN NUEVO ESTUDIANTE -->
-	<div id="addStudentModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form onsubmit="submitRecord();">
-					<div class="modal-header">
-						<h4 class="modal-title">Agregar nuevo estudiante...</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Nombre</label>
-							<input type="text" id="addName" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Ciudad</label>
-							<input type="text" id="addCity" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Teléfono</label>
-							<input type="text" id="addPhone" class="form-control" required>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input type="submit" class="btn btn-success" value="Agregar" id="submitButton">
-					</div>
-				</form>
 			</div>
 		</div>
 	</div>
-	<!-- VENTANA PARA EDITAR UN REGISTRO EXISTENTE -->
-	<div id="editStudentModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">
-						<h4 class="modal-title">Editar registro...</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<label>Nombre</label>
-							<input type="text" id="updateName" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Ciudad</label>
-							<input type="text" id="updateCity" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Teléfono</label>
-							<input type="text" id="updatePhone" class="form-control" required>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input type="submit" onclick="updateRecord();"  class="btn btn-info" value="Guardar">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- VENTANA PARA BORRAR REGISTRO -->
-	<div id="deleteStudentModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">
-						<h4 class="modal-title">Borrar registro...</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<p>¿Estás seguro de querer borrar este registro?</p>
-						<p class="text-warning"><small>Esta acción no se puede deshacer...</small></p>
-					</div>
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input type="submit" onclick="deleteRecord();" id="delteButton" class="btn btn-danger" value="Borrar">
-					</div>
-				</form>
-			</div>
-		</div>
+	<!-- ERROR MESSAGE -->
+	<div class="alert" id="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<strong>¡ERROR!</strong> Usuario y/o contraseña incorrectos...
 	</div>
 </body>
 </html>

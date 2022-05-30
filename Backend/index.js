@@ -1,4 +1,4 @@
-// Included librearies...
+// Included libraries...
 const mysql = require("mysql");
 const express = require("express");
 const bodyparser = require("body-parser");
@@ -159,6 +159,28 @@ app.get("/courses/student/:number", (request, response) =>
     connection.query("SELECT * FROM courses WHERE id IN "+
     "(SELECT courseCompleted FROM kardex WHERE studentNumber = ?);",
     [request.params.number], (error, rows, fields) =>
+    {
+        if (!error)
+        {
+            // console.log(rows);
+            response.send(rows);
+        }
+        else
+        {
+            console.log(error);
+            response.send(error);
+        }
+    });
+});
+
+// Gets scores of the completed courses of an specific student...
+app.get("/score/:studentNumber/:courseNumber", (request, response) =>
+{
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Credentials", true);
+
+    connection.query("SELECT score FROM kardex WHERE studentNumber = ? AND courseCompleted = ? ",
+    [request.params.studentNumber, request.params.courseNumber], (error, rows, fields) =>
     {
         if (!error)
         {
